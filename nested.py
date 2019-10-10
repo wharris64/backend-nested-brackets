@@ -16,10 +16,11 @@ def check_brackets(line):
     temp_closers = []
     counter = 0
     while(line):
+        # if line.startswith(" "):
         if line.startswith("(*"):
             token = "(*"
             counter += 1
-
+            print("line starts with '(*' counter:{}".format(counter))
         elif line.startswith("*)"):
             token = "*)"
             counter += 1
@@ -46,7 +47,7 @@ def check_brackets(line):
 
 
 def read_file(filename):
-    with open(filename) as reader, open("output.txt", "w")as writer:
+    with open(filename) as reader, open("output.txt", "w") as writer:
         content = reader.readlines()
         # content = [x.strip( ) for x in content]
         for i in content:
